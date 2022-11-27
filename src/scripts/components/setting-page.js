@@ -5,30 +5,53 @@ class Setting extends HTMLElement {
 
   render() {
     this.innerHTML = `
-                <div class="container-expand-lg">
-                  <div class="container-lg bg-success d-flex flex-column justify-content-center rounded-5 rounded-top" style="height:230px">
-                    <h2 class="text-center text-light">Setting</h2>
-                    <div class="d-flex flex-row justify-content-center mt-3">
-                        <img class="bg-light rounded-circle" style="width:80px; height:80px;">
-                        <div class="px-3 pt-3">
-                            <h5 class="text-light">Spongebob Squarepants</h5>
-                            <p class="text-light">+6281122334455</p>
-                        </div>
-                    </div>
-                  </div>
-                  <div class="container-lg pt-3">
-                    <div class="w-100 bg-secondary rounded-pill align-item-center" style="height:50px">
-                        <img style="width:35px; height:35px;" class="mx-3 mt-2 bg-black rounded-circle">
-                        <a href="#/setting/:id/account" class="text-light text-decoration-none">My Account</a>
-                    </div>
-                    <div class="w-100 bg-secondary rounded-pill align-item-center mt-3" style="height:50px">
-                        <img style="width:35px; height:35px;" class="mx-3 mt-2 bg-black rounded-circle">
-                        <a href="#/" class="text-light text-decoration-none">Logout</a>
-                    </div>
-                  </div>
-                </div>
-                `;
+      <div class="settings-title px-4 pt-3 pb-4">
+        <h2 class="text-center">Setting</h2>
+        <div class="d-flex gap-3">
+          <img src="./images/profile-pic.svg" alt="profile-pic" />
+          <div
+            class="d-flex flex-column justify-content-center text-nowrap overflow-hidden text-white fs-7"
+          >
+            <p>Uvuvwevwevwe Onyetenvewve Ugwemubwem Ossas</p>
+            <p>+62 81122334455</p>
+          </div>
+        </div>
+      </div>
+      <div class="container py-3">
+        <a
+          href="${window.location.hash + "/account"}"
+          class="d-flex justify-content-between align-items-center my-4 btn btn-light"
+        >
+          <div class="d-flex">
+            <img
+              src="./images/profile-logo.svg"
+              alt="profile-logo"
+              class="me-2 align-items-center ratio ratio-1x1"
+              style="width: 40px;"
+            />
+            <span class="fs-3">My Account</span>
+          </div>
+          <img src="./images/arrow-right.svg" alt="arrow-right" />
+        </a>
+
+        <a
+          href="#"
+          class="d-flex justify-content-between align-items-center my-4 btn btn-light"
+        >
+          <div class="d-flex">
+            <img
+              src="./images/logout-logo.svg"
+              alt="profile-logo"
+              class="me-2 align-items-center ratio ratio-1x1"
+              style="width: 40px;"
+            />
+            <span class="fs-3">Logout</span>
+          </div>
+          <img src="./images/arrow-right.svg" alt="arrow-right" />
+        </a>
+      </div>
+    `;
   }
 }
 
-customElements.define('setting-page', Setting);
+customElements.define("setting-page", Setting);
