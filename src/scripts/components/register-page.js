@@ -31,14 +31,13 @@ class Register extends HTMLElement {
                         <input type="checkbox" class="form-check-input" id="exampleCheck1">
                         <label class="form-check-label" for="exampleCheck1">By Creating an account, you agree to our <b>Term and Conditions</b></label>
                       </div>
-
                       <div class="d-flex justify-content-center mt-5">
                           <button type="submit" class="w-50 text-light rounded-pill border-0" style="height:44px; background-color:#5DB932;">Register</button>
                       </div>
                   </form>
                 </div>
                 <div class="d-flex justify-content-center mt-3 mb-5">
-                  <p>Already have an account? <a href="#/login" class="" style="color:#5DB932;">Login</a></p>
+                  <p>Already have an account? <a href="#/login" style="color:#5DB932">Login</a></p>
                 </div>
               </div>
               `;

@@ -5,7 +5,7 @@ class Setting extends HTMLElement {
 
   render() {
     this.innerHTML = `
-                <div class="container-expand-lg">
+                <div class="container-expand-lg pb-5">
                   <div class="container-lg bg-success d-flex flex-column justify-content-center rounded-5 rounded-top" style="height:230px">
                     <h2 class="text-center text-light">Setting</h2>
                     <div class="d-flex flex-row justify-content-center mt-3">
@@ -17,13 +17,13 @@ class Setting extends HTMLElement {
                     </div>
                   </div>
                   <div class="container-lg pt-3">
-                    <div class="w-100 bg-secondary rounded-pill align-item-center" style="height:50px">
-                        <img style="width:35px; height:35px;" class="mx-3 mt-2 bg-black rounded-circle">
-                        <a href="#/setting/:id/account" class="text-light text-decoration-none">My Account</a>
+                    <div class="d-flex w-100 bg-secondary rounded-pill align-items-center" style="height:50px">
+                        <i class="bi bi-person-circle fs-2 ps-3 text-light"></i>
+                        <a href="#/setting/:id/account" class="text-light text-decoration-none fw-bold fs-5 p-3">My Account</a>
                     </div>
-                    <div class="w-100 bg-secondary rounded-pill align-item-center mt-3" style="height:50px">
-                        <img style="width:35px; height:35px;" class="mx-3 mt-2 bg-black rounded-circle">
-                        <a href="#/" class="text-light text-decoration-none">Logout</a>
+                    <div class="d-flex w-100 bg-secondary rounded-pill align-items-center  my-3" style="height:50px">
+                        <i class="bi bi-box-arrow-left fs-2 ps-3 text-light"></i>
+                        <a href="#/" class="text-light text-decoration-none fw-bold fs-5 p-3">Logout</a>
                     </div>
                   </div>
                 </div>
