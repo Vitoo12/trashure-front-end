@@ -31,10 +31,12 @@ const Login = {
     const correctInput = async () => {
       if (emailInput.value === 'atokemen12@gmail.com' && passwordInput.value === '123456') {
         main.innerHTML += `
-        <div class="alert alert-success d-flex align-items-center position-absolute top-50 start-50 translate-middle" role="alert">
+        <div class="alert alert-success d-flex align-items-center position-absolute top-50 start-50 translate-middle w-75 h-25" role="alert">
         <i class="bi bi-check2-all mx-3 fs-3"></i>
         <div>
           An example success alert with an icon
+        </div>
+        <div>
           <a href="#/" class="btn btn-success text-light text-decoration-none">OK</a>
         </div>
       </div>`;

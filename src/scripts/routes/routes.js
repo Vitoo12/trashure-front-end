@@ -6,6 +6,7 @@ import ListPengepul from '../views/pages/list';
 import Login from '../views/pages/login';
 import Organik from '../views/pages/organik';
 import OrganikDetail from '../views/pages/organikDetail';
+import ChangePassword from '../views/pages/password';
 import Register from '../views/pages/register';
 import Setting from '../views/pages/setting';
 
@@ -18,6 +19,7 @@ const routes = {
   '/register': Register,
   '/setting/:id': Setting,
   '/setting/:id/account': AccountSetting,
+  '/setting/:id/password': ChangePassword,
   '/anorganik/:id': AnorganikDetail,
   '/organik/:id': OrganikDetail,
 
