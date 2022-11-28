@@ -15,15 +15,15 @@ class Login extends HTMLElement {
                     <div>
                         <label>E-mail</label>
                         <br>
-                        <input type="text" class="w-100 ps-3 rounded-2" style="height:44px;" placeholder="Your email">
+                        <input type="text" class="w-100 ps-3 rounded-2" style="height:44px;" placeholder="Your email" id="emailLogin" required>
                     </div>
                     <div class="mt-3">
                         <label>Password</label>
                         <br>
-                        <input class="w-100 ps-3 rounded-2" style="height:44px;" placeholder="Password" type="password">
+                        <input class="w-100 ps-3 rounded-2" style="height:44px;" placeholder="Password" type="password" id="passwordLogin" required>
                     </div>
                     <div class="d-flex justify-content-center mt-5">
-                        <button type="submit" class="w-50 text-light rounded-pill border-0" style="height:44px; background-color:#5DB932;">Login</button>
+                        <button type="submit" class="w-50 text-light rounded-pill border-0" style="height:44px; background-color:#5DB932;" id="buttonLogin">Login</button>
                     </div>
                 </form>
               </div>

@@ -1,10 +1,10 @@
 import 'regenerator-runtime';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 import '../styles/main.css';
 import './components/nav-bar';
 import './components/foot-bar';
-
 import App from './views/app';
 
 const app = new App({

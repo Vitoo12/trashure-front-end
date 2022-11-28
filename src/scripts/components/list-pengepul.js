@@ -1,4 +1,6 @@
 /* eslint-disable no-empty-function */
+import './skeleton/skeleton-list';
+
 class ListPengepul extends HTMLElement {
   connectedCallback() {
     this.render();
@@ -13,26 +15,7 @@ class ListPengepul extends HTMLElement {
                   <input type="text" class="rounded w-100 px-2" style="height:44px" placeholder="Search Pengepul">
                 </div>
                 <div class="d-flex flex-column justify-content-center mt-4">
-                  <div class="bg-warning p-3 rounded-3 w-100 mt-2">
-                    <h3>Nama Pengepul</h3>
-                    <p>Alamat Pengepul</p>
-                    <p>08381123123</p>
-                  </div>
-                  <div class="bg-warning p-3 rounded-3 w-100 mt-2">
-                    <h3>Nama Pengepul</h3>
-                    <p>Alamat Pengepul</p>
-                    <p>08381123123</p>
-                  </div>
-                  <div class="bg-warning p-3 rounded-3 w-100 mt-2">
-                    <h3>Nama Pengepul</h3>
-                    <p>Alamat Pengepul</p>
-                    <p>08381123123</p>
-                  </div>
-                  <div class="bg-warning p-3 rounded-3 w-100 mt-2">
-                    <h3>Nama Pengepul</h3>
-                    <p>Alamat Pengepul</p>
-                    <p>08381123123</p>
-                  </div>
+                  <skeleton-list></skeleton-list>
                 </div>
               </div>
             </div>
