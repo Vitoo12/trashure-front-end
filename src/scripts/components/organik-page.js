@@ -1,8 +1,66 @@
-import './skeleton/skeleton-tips';
+import "./skeleton/skeleton-tips";
 
 class OrganikPage extends HTMLElement {
-  connectedCallback() {
+  constructor() {
+    super();
+    this.filter;
+    this.data = [];
+  }
+
+  async connectedCallback() {
     this.render();
+
+    const reqOrganik = await fetch("http://localhost:5000/organik", {
+      method: "GET",
+    });
+    const reqOrganikJson = await reqOrganik.json();
+    const dataFromApi = reqOrganikJson.data;
+    this.data.push(...dataFromApi);
+    this.htmlstring = this.createhtmlListOrganik(this.data);
+    this.searchButton = this.querySelector("button.search");
+    this.searchInput = this.querySelector(".search-input");
+    this.listOrganikElement = this.querySelector(".container-organik");
+    this.listOrganikElement.classList.add("row");
+    this.listOrganikElement.innerHTML = this.htmlstring;
+    this.searchListener();
+  }
+
+  searchListener() {
+    this.searchButton.addEventListener("click", () => {
+      const inputText = this.searchInput.value;
+      this.filter = this.data.filter((Organik) =>
+        Organik.name.toLowerCase().includes(inputText.toLowerCase())
+      );
+      this.listOrganikElement.innerHTML = this.createhtmlListOrganik(
+        this.filter
+      );
+    });
+  }
+
+  createHtmlOrganik(organik) {
+    const { name, description, image, video } = organik;
+    return `
+      <div class="col-xs-12 col-sm-6 col-lg-4 col-xl-3 my-3">
+        <div class="card">
+          <img src="${image}" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">${name}</h5>
+            <p class="card-text text-break" style="height: 190px">${description}</p>
+            <a href="#" type="button" class="btn btn-warning">Detail >></a>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  createhtmlListOrganik(arrayOrganik) {
+    const array = [];
+    for (let i = 0; i < arrayOrganik.length; i++) {
+      const objectO = arrayOrganik[i];
+      const objectOrganik = this.createHtmlOrganik(objectO);
+      array.push(objectOrganik);
+    }
+    return array.join("");
   }
 
   async render() {
@@ -10,9 +68,22 @@ class OrganikPage extends HTMLElement {
                 <div class="container-expand-lg">
                   <h1 class="text-center mt-4">Tips Organik</h1>
                   <div class="container-expand-lg bg-success p-4 rounded-5 rounded-bottom">
-                    <div class="d-flex justify-content-center">
-                      <input type="text" class="rounded w-100 px-2" style="height:44px" placeholder="Search Tips">
+                  <div class="d-flex justify-content-center">
+                  <div class="input-group mb-3">
+                    <input
+                      type="text"
+                      class="search-input form-control"
+                      placeholder="Mau daur ulang limbah apa hari ini?"
+                      aria-label="Mau daur ulang limbah apa hari ini?"
+                      aria-describedby="basic-addon2"
+                    />
+                    <div class="input-group-append ms-1">
+                      <button class="search form-control bg-warning">
+                        <i class="bi bi-search"></i>
+                      </button>
                     </div>
+                  </div>
+                </div>
                     <div class="container-expand-lg container-organik">
                       <skeleton-tips class="row"></skeleton-tips>
                     </div>
@@ -22,4 +93,4 @@ class OrganikPage extends HTMLElement {
   }
 }
 
-customElements.define('organik-page', OrganikPage);
+customElements.define("organik-page", OrganikPage);
