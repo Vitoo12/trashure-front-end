@@ -13,35 +13,35 @@ class Register extends HTMLElement {
                 <div class="container-lg mt-4">
                   <form>
                       <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Nama</label>
-                        <input type="text" class="form-control" required>
+                        <label for="namaInput" class="form-label">Nama</label>
+                        <input type="text" class="form-control" id="namaInput" required>
                       </div>
                       <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Email address</label>
-                        <input type="email" class="form-control" aria-describedby="emailHelp" required>
+                        <label for="emailInput" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp" required>
                       </div>
                       <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Password</label>
-                        <input type="password" class="form-control" required>
+                        <label for="passwordInput" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="passwordInput" required>
                       </div>
                       <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">No Telp</label>
-                        <input type="number" class="form-control" required>
+                        <label for="notelpInput" class="form-label">No Telp</label>
+                        <input type="number" class="form-control" id="notelpInput" required>
                       </div>
                       <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">NIK</label>
-                        <input type="number" class="form-control" required>
+                        <label for="nikInput" class="form-label">NIK</label>
+                        <input type="number" class="form-control" id="nikInput" required>
                       </div>
                       <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Alamat Pengepul</label>
-                        <textarea type="text" class="form-control" required></textarea>
+                        <label for="alamatInput" class="form-label">Alamat Pengepul</label>
+                        <textarea type="text" class="form-control" id="alamatInput" required></textarea>
                       </div>
                       <div class="mt-3 form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
+                        <input type="checkbox" class="form-check-input" id="checkInput" required>
                         <label class="form-check-label" for="exampleCheck1">By Creating an account, you agree to our <b>Term and Conditions</b></label>
                       </div>
                       <div class="d-flex justify-content-center mt-5">
-                          <button type="submit" class="w-50 text-light rounded-pill border-0" style="height:44px; background-color:#5DB932;">Register</button>
+                          <button type="submit" class="w-50 text-light rounded-pill border-0" style="height:44px; background-color:#5DB932;" id="registerButton">Register</button>
                       </div>
                   </form>
                 </div>
