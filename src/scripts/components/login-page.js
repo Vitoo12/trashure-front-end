@@ -8,7 +8,7 @@ class Login extends HTMLElement {
             <div class="container-expand-lg">
               <div class="container-lg mt-5">
                 <h2 class="fw-bolder fs-1">Login</h2>
-                <p>Please log in to your account</p>
+                <p>Please log in to your account as pengepul</p>
               </div>
               <div class="container-lg mt-4">
                 <form>

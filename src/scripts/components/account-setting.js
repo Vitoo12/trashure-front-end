@@ -12,31 +12,27 @@ class AccountSetting extends HTMLElement {
                     <div class="container-lg mt-2 mb-5">
                       <form>
                         <div class="mb-3">
-                          <label for="exampleInputEmail1" class="form-label">Nama</label>
-                          <input type="text" class="form-control" placeholder="Spongebob Squarepants">
+                          <label for="namaAccount" class="form-label">Nama</label>
+                          <input type="text" class="form-control" id="namaAccount">
                         </div>
                         <div class="mb-3">
-                          <label for="exampleInputEmail1" class="form-label">Email address</label>
-                          <input type="email" class="form-control" aria-describedby="emailHelp">
+                          <label for="emailAccount" class="form-label">Email address</label>
+                          <input type="email" class="form-control" aria-describedby="emailHelp" id="emailAccount">
                         </div>
                         <div class="mb-3">
-                          <label for="exampleInputPassword1" class="form-label">Password</label>
-                          <input type="password" class="form-control">
+                          <label for="numberAccount" class="form-label">No Telp</label>
+                          <input type="number" class="form-control" id="numberAccount">
                         </div>
                         <div class="mb-3">
-                          <label for="exampleInputPassword1" class="form-label">No Telp</label>
-                          <input type="number" class="form-control">
+                          <label for="nikAccount" class="form-label">NIK</label>
+                          <input type="number" class="form-control" id="nikAccount">
                         </div>
                         <div class="mb-3">
-                          <label for="exampleInputPassword1" class="form-label">NIK</label>
-                          <input type="number" class="form-control">
-                        </div>
-                        <div class="mb-3">
-                          <label for="exampleInputEmail1" class="form-label">Alamat Pengepul</label>
-                          <textarea type="text" class="form-control"></textarea>
+                          <label for="alamatAccount" class="form-label">Alamat Pengepul</label>
+                          <textarea type="text" class="form-control" id="alamatAccount"></textarea>
                         </div>
                         <div class="mb-3 d-flex justify-content-center" >
-                          <button type="submit" class="btn btn-success w-50 rounded-4" style="height:44px;">Save</button>
+                          <button type="submit" class="btn btn-success w-50 rounded-4" style="height:44px;" id="saveButton">Save</button>
                         </div>
                       </form>
                     </div>

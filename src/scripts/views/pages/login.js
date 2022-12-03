@@ -1,17 +1,28 @@
-/* eslint-disable no-console */
 import '../../components/login-page';
 import Swal from 'sweetalert2';
 import UserDbSource from '../../data/userDbSource';
 import localStorageSource from '../../data/localStorageSource';
+import '../../components/loading/loading-page';
 
 const Login = {
   async render() {
     return `
             <login-page></login-page>
+            <loading-page class="d-none"></loading-page>
         `;
   },
 
   async afterRender() {
+    const loading = document.querySelector('loading-page');
+
+    const addLoading = () => {
+      loading.classList.remove('d-none');
+    };
+
+    const removeLoading = () => {
+      loading.classList.add('d-none');
+    };
+
     const addSetting = () => {
       const settingNav = document.querySelector('#settingNav');
       settingNav.classList.remove('d-none');
@@ -35,7 +46,9 @@ const Login = {
             email: emailInput.value,
             password: passwordInput.value,
           };
+          addLoading();
           const data = await UserDbSource.loginUser(user);
+          removeLoading();
           if (data) {
             localStorageSource.setUserToLocalStorage(data.id);
             window.location.assign('#/');

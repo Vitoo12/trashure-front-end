@@ -8,6 +8,18 @@ class UserDbSource {
     return responseJson.data;
   }
 
+  static async updateUser(user, id) {
+    const options = {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(user),
+    };
+    const response = await fetch(API_ENDPOINT.DETAIL_USER(id), options);
+    return response;
+  }
+
   static async registerUser(user) {
     const options = {
       method: 'POST',
