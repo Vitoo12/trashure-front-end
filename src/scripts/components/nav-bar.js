@@ -1,8 +1,3 @@
-/* eslint-disable no-console */
-// import LocalStorageSource from '../data/localStorageSource';
-
-import LocalStorageSource from '../data/localStorageSource';
-
 class NavBar extends HTMLElement {
   connectedCallback() {
     this.render();
@@ -31,7 +26,7 @@ class NavBar extends HTMLElement {
                   </ul>
                 </li>
                 <li class="nav-item mx-2 d-none" id="settingNav">
-                  <button class="p-0 text-center bg-transparent border-0 text-white" aria-current="page" id="settingButton"><i class="bi bi-person-circle fs-2"></i></button>
+                  <a class="nav-link active" aria-current="page" href="#/setting/:id" >Settings</a>
                 </li>
                 <li class="nav-item mx-2" id="loginNav">
                   <a class="nav-link btn btn-success text-warning" href="#/login">Login</a>
@@ -44,15 +39,6 @@ class NavBar extends HTMLElement {
           </div>
         </nav>
         `;
-
-    const settingButton = this.querySelector('#settingButton');
-
-    settingButton.addEventListener('click', () => {
-      const idUser = LocalStorageSource.getUserFromLocalStorage();
-      if (idUser) {
-        window.location.assign(`#/setting/${idUser || '-'}`);
-      }
-    });
   }
 }
 
