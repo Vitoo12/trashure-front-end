@@ -1,7 +1,8 @@
-/* eslint-disable import/no-cycle */
-
+/* eslint-disable no-console */
 import '../../components/login-page';
-// import routes from '../../routes/routes';
+import Swal from 'sweetalert2';
+import UserDbSource from '../../data/userDbSource';
+import localStorageSource from '../../data/localStorageSource';
 
 const Login = {
   async render() {
@@ -23,26 +24,56 @@ const Login = {
       registerNav.classList.add('d-none');
     };
 
-    const emailInput = document.querySelector('#emailLogin');
-    const passwordInput = document.querySelector('#passwordLogin');
     const buttonLogin = document.querySelector('#buttonLogin');
-    const main = document.querySelector('main');
 
     const correctInput = async () => {
-      if (emailInput.value === 'atokemen12@gmail.com' && passwordInput.value === '123456') {
-        main.innerHTML += `
-        <div class="alert alert-success d-flex align-items-center position-absolute top-50 start-50 translate-middle w-75 h-25" role="alert">
-        <i class="bi bi-check2-all mx-3 fs-3"></i>
-        <div>
-          An example success alert with an icon
-        </div>
-        <div>
-          <a href="#/" class="btn btn-success text-light text-decoration-none">OK</a>
-        </div>
-      </div>`;
-
-        removeLoginRegisterNav();
-        addSetting();
+      if (window.navigator.onLine) {
+        const emailInput = document.querySelector('#emailLogin');
+        const passwordInput = document.querySelector('#passwordLogin');
+        if (emailInput.value !== '' && passwordInput.value !== '') {
+          const user = {
+            email: emailInput.value,
+            password: passwordInput.value,
+          };
+          const data = await UserDbSource.loginUser(user);
+          if (data) {
+            localStorageSource.setUserToLocalStorage(data.id);
+            window.location.assign('#/');
+            removeLoginRegisterNav();
+            addSetting();
+            Swal.fire({
+              position: 'center',
+              icon: 'success',
+              title: 'Login success',
+              showConfirmButton: false,
+              timer: 1500,
+            });
+          } else {
+            Swal.fire({
+              position: 'center',
+              icon: 'error',
+              title: 'Your email or password false',
+              showConfirmButton: false,
+              timer: 1500,
+            });
+          }
+        } else {
+          Swal.fire({
+            position: 'center',
+            icon: 'warning',
+            title: 'Please input your email or password',
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      } else {
+        Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Please check your internet',
+          showConfirmButton: false,
+          timer: 1500,
+        });
       }
     };
 
