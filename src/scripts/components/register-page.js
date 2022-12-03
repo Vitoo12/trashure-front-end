@@ -8,7 +8,7 @@ class Register extends HTMLElement {
               <div class="container-expand-lg">
                 <div class="container-lg mt-5">
                   <h2 class="fw-bolder fs-1">Register</h2>
-                  <p>Create an account here</p>
+                  <p>Create an account as pengepul in here</p>
                 </div>
                 <div class="container-lg mt-4">
                   <form>

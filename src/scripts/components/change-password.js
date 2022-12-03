@@ -13,47 +13,16 @@ class ChangePassword extends HTMLElement {
           </div>
           <div class="container-lg mt-2 mb-5">
             <form>
-              
               <div class="mb-3">
-                <label for="currPassword" class="form-label">
-                  Current Password
-                </label>
-                <input
-                  type="password"
-                  class="form-control bg-light"
-                  id="currPassword"
-                />
+                <label for="newPassword" class="form-label">New Password</label>
+                <input type="password" class="form-control bg-light" id="newPassword"/>
               </div>
-              
               <div class="mb-3">
-                <label for="newPassword" class="form-label">
-                  New Password
-                </label>
-                <input
-                  type="password"
-                  class="form-control bg-light"
-                  id="newPassword"
-                />
-              </div>
-              
-              <div class="mb-3">
-                <label for="confirmPassword" class="form-label">
-                  Confirm New Password
-                </label>
-                <input
-                  type="password"
-                  class="form-control bg-light"
-                  id="confirmPassword"
-                />
+                <label for="confirmPassword" class="form-label">Confirm New Password</label>
+                <input type="password" class="form-control bg-light" id="confirmPassword"/>
               </div>
               <div class="mb-3 d-flex justify-content-center">
-                <button
-                  type="submit"
-                  class="btn btn-success w-50 rounded-4"
-                  style="height:44px;"
-                >
-                  Update
-                </button>
+                <button type="submit" class="btn btn-success w-50 rounded-4" style="height:44px;" id="updateButton">Update</button>
               </div>
             </form>
           </div>

@@ -1,17 +1,27 @@
-/* eslint-disable no-console */
 import '../../components/register-page';
 import Swal from 'sweetalert2';
 import UserDbSource from '../../data/userDbSource';
+import '../../components/loading/loading-page';
 
 const Register = {
   async render() {
     return `
-            <register-page></-page>
+            <register-page></register-page>
+            <loading-page class="d-none"></loading-page>
         `;
   },
 
   async afterRender() {
     const registerButton = document.querySelector('#registerButton');
+    const loading = document.querySelector('loading-page');
+
+    const addLoading = () => {
+      loading.classList.remove('d-none');
+    };
+
+    const removeLoading = () => {
+      loading.classList.add('d-none');
+    };
 
     const addUser = async () => {
       if (window.navigator.onLine) {
@@ -31,22 +41,34 @@ const Register = {
             nik: nikInput,
             alamat: alamatInput,
           };
-          await UserDbSource.registerUser(user);
-          window.location.assign('#/login');
-          Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'Register has been succed',
-            showConfirmButton: false,
-            timer: 1500,
-          });
+          addLoading();
+          const response = await UserDbSource.registerUser(user);
+          removeLoading();
+          if (response.status === 200) {
+            window.location.assign('#/login');
+            Swal.fire({
+              position: 'center',
+              icon: 'success',
+              title: 'Register has been succed',
+              showConfirmButton: false,
+              timer: 2500,
+            });
+          } else {
+            Swal.fire({
+              position: 'center',
+              icon: 'warning',
+              title: 'Your data (email,nik or number) has been used',
+              showConfirmButton: false,
+              timer: 2500,
+            });
+          }
         } else {
           Swal.fire({
             position: 'center',
             icon: 'warning',
             title: 'Please input all data',
             showConfirmButton: false,
-            timer: 1500,
+            timer: 2500,
           });
         }
       } else {
@@ -55,7 +77,7 @@ const Register = {
           icon: 'error',
           title: 'Please check your internet',
           showConfirmButton: false,
-          timer: 1500,
+          timer: 2500,
         });
       }
     };
