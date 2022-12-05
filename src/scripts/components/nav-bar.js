@@ -31,7 +31,7 @@ class NavBar extends HTMLElement {
                   </ul>
                 </li>
                 <li class="nav-item m-2 d-none" id="settingNav">
-                  <button class="p-0 text-center bg-transparent border-0 text-white" aria-current="page" id="settingButton"><i class="bi bi-person-circle fs-2"></i></button>
+                  <button class="p-0 text-center bg-transparent border-0 text-white" aria-current="page" id="settingButton" aria-label="Setting Account"><i class="bi bi-person-circle fs-2"></i></button>
                 </li>
                 <li class="nav-item m-2" id="loginNav">
                   <a class="nav-link btn btn-success text-warning" href="#/login">Login</a>

@@ -7,8 +7,8 @@ class Login extends HTMLElement {
     this.innerHTML = `
             <div class="container-expand-lg">
               <div class="container-lg mt-5">
-                <h2 class="fw-bolder fs-1">Login</h2>
-                <p>Please log in to your account as pengepul</p>
+                <h2 class="fw-bolder fs-1" tabindex="0">Login</h2>
+                <p tabindex="0">Please log in to your account <b>as pengepul</b></p>
               </div>
               <div class="container-lg mt-4">
                 <form>
@@ -28,7 +28,7 @@ class Login extends HTMLElement {
                 </form>
               </div>
               <div class="d-flex justify-content-center mt-3 mb-5">
-                <p>Don't have an account? <a href="#/register" class="" style="color:#5DB932;">Sign Up</a></p>
+                <p tabindex="0">Don't have an account? <a href="#/register" class="" style="color:#5DB932;">Sign Up</a></p>
               </div>
             </div>
             `;

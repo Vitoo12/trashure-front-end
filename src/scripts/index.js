@@ -1,4 +1,6 @@
 import 'regenerator-runtime';
+import 'lazysizes';
+import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap';
 import 'bootstrap-icons/font/bootstrap-icons.css';
@@ -7,6 +9,7 @@ import './components/nav-bar';
 import './components/foot-bar';
 import App from './views/app';
 import LocalStorageSource from './data/localStorageSource';
+import swRegister from './utils/sw-register';
 
 const app = new App({
   content: document.querySelector('#mainContent'),
@@ -27,4 +30,5 @@ window.addEventListener('load', () => {
     registerNav.classList.add('d-none');
   }
   app.renderPage();
+  swRegister();
 });

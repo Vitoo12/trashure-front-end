@@ -7,7 +7,7 @@ class AccountSetting extends HTMLElement {
     this.innerHTML = `
                   <div class="container-expand-lg">
                     <div class="d-flex justify-content-center fw-bold p-3">
-                      <h2>My Account</h2>
+                      <h2 tabindex="0">My Account</h2>
                     </div>
                     <div class="container-lg mt-2 mb-5">
                       <form>

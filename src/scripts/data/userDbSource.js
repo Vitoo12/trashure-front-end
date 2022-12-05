@@ -1,7 +1,12 @@
-/* eslint-disable no-console */
 import API_ENDPOINT from '../globals/api-endpoint';
 
 class UserDbSource {
+  static async getAllUser() {
+    const response = await fetch(API_ENDPOINT.USERS);
+    const responseJson = await response.json();
+    return responseJson.data;
+  }
+
   static async detailUser(id) {
     const response = await fetch(API_ENDPOINT.DETAIL_USER(id));
     const responseJson = await response.json();

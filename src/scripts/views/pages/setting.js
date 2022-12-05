@@ -38,8 +38,8 @@ const Setting = {
       containerSetting.innerHTML = `
                         <img src="images/profile-pic.png" class="bg-light rounded-circle" style="width:80px; height:80px;">
                         <div class="px-3 pt-3">
-                            <h5 class="text-light">${user.name}</h5>
-                            <p class="text-light">+62 ${user.number}</p>
+                            <h5 class="text-light" tabindex="0">${user.name}</h5>
+                            <p class="text-light" tabindex="0">${user.number}</p>
                         </div>
                         `;
     } else {

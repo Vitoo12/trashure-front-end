@@ -1,9 +1,9 @@
-import "./skeleton/skeleton-tips";
+import './skeleton/skeleton-tips';
 
 class AnorganikPage extends HTMLElement {
   constructor() {
     super();
-    this.filter;
+    this.filter = null;
     this.data = [];
   }
 
@@ -11,45 +11,46 @@ class AnorganikPage extends HTMLElement {
     this.render();
 
     const reqAnorganik = await fetch(
-      "https://trashure-back-end-production.up.railway.app/anorganik",
+      'https://trashure-back-end-production.up.railway.app/anorganik',
       {
-        method: "GET",
-      }
+        method: 'GET',
+      },
     );
     const reqAnorganikJson = await reqAnorganik.json();
     const dataFromApi = reqAnorganikJson.data;
     this.data.push(...dataFromApi);
     this.htmlstring = this.createhtmlListAnorganik(this.data);
-    this.searchButton = this.querySelector("button.search");
-    this.searchInput = this.querySelector(".search-input");
-    this.listAnorganikElement = this.querySelector(".container-anorganik");
-    this.listAnorganikElement.classList.add("row");
+    this.searchButton = this.querySelector('button.search');
+    this.searchInput = this.querySelector('.search-input');
+    this.listAnorganikElement = this.querySelector('.container-anorganik');
+    this.listAnorganikElement.classList.add('row');
     this.listAnorganikElement.innerHTML = this.htmlstring;
     this.searchListener();
   }
 
   searchListener() {
-    this.searchButton.addEventListener("click", () => {
+    this.searchButton.addEventListener('click', () => {
       const inputText = this.searchInput.value;
-      this.filter = this.data.filter((anorganik) =>
-        anorganik.name.toLowerCase().includes(inputText.toLowerCase())
-      );
+      this.filter = this.data.filter((anorganik) => anorganik.name.toLowerCase()
+        .includes(inputText.toLowerCase()));
       this.listAnorganikElement.innerHTML = this.createhtmlListAnorganik(
-        this.filter
+        this.filter,
       );
     });
   }
 
   createHtmlAnorganik(anorganik) {
-    const { name, description, image, id } = anorganik;
+    const {
+      name, description, image, id,
+    } = anorganik;
     return `
       <div class="col-xs-12 col-sm-6 col-lg-4 col-xl-3 my-3">
-        <div class="card">
-          <img src="${image}" class="card-img-top" alt="..." />
+        <div class="card" style="width:300px; height:500px">
+          <img src="${image}" class="card-img-top lazyload" alt="${name}" style="height:300px;"/>
           <div class="card-body">
-            <h5 class="card-title">${name}</h5>
-            <p class="card-page card-text text-break">${description}</p>
-            <a href="https://trashure-back-end-production.up.railway.app/anorganik/${id}" type="button" class="btn btn-warning">Detail >></a>
+            <h5 class="card-title text-capitalize">${name}</h5>
+            <p class="card-page card-text text-break" style="overflow:auto; height:150px;">${description}</p>
+            <a href="#/anorganik/${id}" type="button" class="btn btn-warning">Detail</a>
           </div>
         </div>
       </div>
@@ -58,22 +59,20 @@ class AnorganikPage extends HTMLElement {
 
   createhtmlListAnorganik(arrayAnorganik) {
     const array = [];
-    for (let i = 0; i < arrayAnorganik.length; i++) {
+    for (let i = 0; i < arrayAnorganik.length; i += 1) {
       const objectA = arrayAnorganik[i];
       const objectAnorganik = this.createHtmlAnorganik(objectA);
       array.push(objectAnorganik);
     }
-    return array.join("");
+    return array.join('');
   }
 
   async render() {
     this.innerHTML = `
       <div class="container-expand-lg">
         <h1 class="text-center mt-4">Tips Anorganik</h1>
-        <div
-          class="container-expand-lg bg-success p-4 rounded-5 rounded-bottom"
-        >
-          <div class="d-flex justify-content-center">
+        <div class="container-expand-lg bg-success p-4 rounded-5 rounded-bottom" style="min-height:500px;">
+          <div class="d-flex justify-content-center h-100">
             <div class="input-group mb-3">
               <input
                 type="text"
@@ -98,4 +97,4 @@ class AnorganikPage extends HTMLElement {
   }
 }
 
-customElements.define("anorganik-page", AnorganikPage);
+customElements.define('anorganik-page', AnorganikPage);

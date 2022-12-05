@@ -1,9 +1,9 @@
-const createPengepulListItemTemplate = (pengepul) => `
-<div class="bg-warning p-3 rounded-3 w-100 mt-2">
-    <h3>${pengepul.data.name || '-'}</h3>
-    <p>${pengepul.data.alamat || 'Alamat belum tersedia'}</p>
-    <p>${pengepul.data.no || 'Kontak Belum tersedia'}</p>
-</div>
+const createPengepulListItemTemplate = (users) => `
+  <div class="bg-warning p-3 rounded-3 w-100 mt-2" id="containerUsers">
+      <h3 tabindex="0">${users.name || '-'}</h3>
+      <p id="userAlamat" tabindex="0">${users.alamat || '-'}</p>
+      <p tabindex="0">${users.number || '-'}</p>
+  </div>
 `;
 const createTipsListItemTemplate = (tips) => `
   <div class="col-xs-12 col-sm-6 col-lg-4 col-xl-3 my-3">
@@ -28,7 +28,7 @@ const createTipsDetailItemTemplate = (tips) => `
     <p>${tips.data.tip.descDetail || '-'}</p>
 </div>
 `;
-export default {
+export {
   createPengepulListItemTemplate,
   createTipsListItemTemplate,
   createTipsDetailItemTemplate,

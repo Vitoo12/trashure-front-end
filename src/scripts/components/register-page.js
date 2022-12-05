@@ -7,8 +7,8 @@ class Register extends HTMLElement {
     this.innerHTML = `
               <div class="container-expand-lg">
                 <div class="container-lg mt-5">
-                  <h2 class="fw-bolder fs-1">Register</h2>
-                  <p>Create an account as pengepul in here</p>
+                  <h2 class="fw-bolder fs-1" tabindex="0">Register</h2>
+                  <p tabindex="0">Create an account <b>as pengepul</b> in here</p>
                 </div>
                 <div class="container-lg mt-4">
                   <form>
@@ -38,7 +38,7 @@ class Register extends HTMLElement {
                       </div>
                       <div class="mt-3 form-check">
                         <input type="checkbox" class="form-check-input" id="checkInput" required>
-                        <label class="form-check-label" for="exampleCheck1">By Creating an account, you agree to our <b>Term and Conditions</b></label>
+                        <label class="form-check-label" for="exampleCheck1" tabindex="0">By Creating an account, you agree to our <b>Term and Conditions</b></label>
                       </div>
                       <div class="d-flex justify-content-center mt-5">
                           <button type="submit" class="w-50 text-light rounded-pill border-0" style="height:44px; background-color:#5DB932;" id="registerButton">Register</button>
@@ -46,7 +46,7 @@ class Register extends HTMLElement {
                   </form>
                 </div>
                 <div class="d-flex justify-content-center mt-3 mb-5">
-                  <p>Already have an account? <a href="#/login" style="color:#5DB932">Login</a></p>
+                  <p tabindex="0">Already have an account? <a href="#/login" style="color:#5DB932">Login</a></p>
                 </div>
               </div>
               `;

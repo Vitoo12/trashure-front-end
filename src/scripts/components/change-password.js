@@ -7,9 +7,9 @@ class ChangePassword extends HTMLElement {
     this.innerHTML = `
         <div class="container-expand-lg">
           <div class="d-flex justify-content-center align-items-center flex-column fw-bold p-3">
-            <h2>Change Password</h2>
+            <h2 tabindex="0">Change Password</h2>
             <img src="./images/lock-icon.jpg" alt="lock-icon" class="my-3" />
-            <p class="text-wrap text-center">Your New Password  Must Be Different from Previously Used Password.</p>
+            <p class="text-wrap text-center" tabindex="0">Your New Password  Must Be Different from Previously Used Password.</p>
           </div>
           <div class="container-lg mt-2 mb-5">
             <form>

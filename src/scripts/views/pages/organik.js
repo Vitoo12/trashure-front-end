@@ -9,17 +9,6 @@ const Organik = {
   },
 
   async afterRender() {
-    const skeleton = document.querySelector('skeleton-tips');
-    const removeSkeleton = () => {
-      skeleton.classList.add('d-none');
-    };
-
-    const addSkeleton = () => {
-      skeleton.classList.remove('d-none');
-    };
-
-    removeSkeleton();
-    addSkeleton();
   },
 };
 

@@ -1,4 +1,3 @@
-/* eslint-disable no-empty-function */
 import '../../components/anorganik-page';
 
 const Anorganik = {
