@@ -1,5 +1,5 @@
-import "./skeleton/skeleton-detail";
-import UrlParser from "../routes/url-parser";
+import './skeleton/skeleton-detail';
+import UrlParser from '../routes/url-parser';
 
 class AnorganikDetail extends HTMLElement {
   constructor() {
@@ -13,8 +13,8 @@ class AnorganikDetail extends HTMLElement {
     const reqAnorganik = await fetch(
       `https://trashure-back-end-production.up.railway.app/anorganik/${id}`,
       {
-        method: "GET",
-      }
+        method: 'GET',
+      },
     );
     const reqAnorganikJson = await reqAnorganik.json();
     const dataFromApi = reqAnorganikJson.data;
@@ -22,44 +22,57 @@ class AnorganikDetail extends HTMLElement {
     this.htmlstring = this.template(this.data);
     this.firstElementChild.innerHTML = this.htmlstring;
     this.htmlstringStep = this.createhtmlListStepAnorganik(this.data.Tips);
-    this.stepAnorganikElement = this.querySelector(".anorganik-step");
-    this.stepAnorganikElement.innerHTML = this.htmlstringStep;
+    this.stepAnorganikElement = this.querySelector('.anorganik-step');
+    this.stepAnorganikElement.innerHTML += this.htmlstringStep;
   }
 
   template(anorganik) {
-    const { name, description, image, video } = anorganik;
+    const {
+      name, description, image, video,
+    } = anorganik;
 
     return `
-    <div class="anorganik-name">
-    <h3 class="card-title py-2">${name.toUpperCase()}</h3>
-    <p class="video-text">Video = <a href="${video}" class="link-success">${video}</a> </p> 
-    <img src="${image}" class="img-anorganik-detail" alt="..." />
-    <p class="video-text">${description} </p>
+    <div class="container-expand-lg anorganik-name py-4">
+      <h2 class="card-title py-2 text-uppercase fs-1">${name}</h2>
+      <div class="row">
+        <div class="col-xl-8" style="min-height:250px">
+          <img src="${image}" class="w-100 lazyload" alt="${name}" style="max-height:500px;" />
+        </div>
+        <div class="col-xl-4">
+          <p class="video-text fs-5">Video = <a href="${video}" target="_blank" class="link-success">${video}</a> </p> 
+          <p class="description-text lh-lg" style="font-size:1em;">${description} </p>
+        </div>
+      </div>
     </div>
-    <div class="anorganik-step"></div>
+
+    <div class="anorganik-step" style="padding:50px 0px">
+      <h2 class="mb-3">Tips and Trick mengelola sampah ${name}</h2>
+    </div>
     `;
   }
 
   createhtmlStepAnorganik(stepAnorganik, index) {
     const { title, descDetail, imageDetail } = stepAnorganik;
     return `
-    <h5 class="card-title py-2">${index + 1}. ${title
-      .split(" ")
-      .map((word) => word[0].toUpperCase() + word.slice(1))
-      .join(" ")}</h5>
-    <img src="${imageDetail}" class="img-anorganik-detail" alt="..." />
-    <p class="text-break" >${descDetail}</p>
+    <div class="py-4">
+      <h3 class="card-title py-2">${index + 1}. ${title.split(' ').map((word) => word[0].toUpperCase() + word.slice(1)).join(' ')}
+      </h3>
+      <div style="min-height:300px;">
+        <img src="${imageDetail}" class="w-100 lazyload" alt="${title}" style="max-height:500px; max-width:500px"/>
+      </div>
+      <p class="text-break lh-lg" style="1em">${descDetail}</p>
+    </div>
     `;
   }
 
   createhtmlListStepAnorganik(arrayAnorganik) {
     const array = [];
-    for (let i = 0; i < arrayAnorganik.length; i++) {
+    for (let i = 0; i < arrayAnorganik.length; i += 1) {
       const objectA = arrayAnorganik[i];
       const objectAnorganik = this.createhtmlStepAnorganik(objectA, i);
       array.push(objectAnorganik);
     }
-    return array.join("");
+    return array.join('');
   }
 
   async render() {
@@ -71,4 +84,4 @@ class AnorganikDetail extends HTMLElement {
   }
 }
 
-customElements.define("anorganik-detail", AnorganikDetail);
+customElements.define('anorganik-detail', AnorganikDetail);

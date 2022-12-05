@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import UrlParser from '../routes/url-parser';
 import routes from '../routes/routes';
 

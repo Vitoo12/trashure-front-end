@@ -7,12 +7,11 @@ class Setting extends HTMLElement {
     this.innerHTML = `
                 <div class="container-expand-lg pb-5">
                   <div class="container-lg bg-success d-flex flex-column justify-content-center rounded-5 rounded-top" style="height:230px">
-                    <h2 class="text-center text-light">Setting</h2>
+                    <h2 class="text-center text-light" tabindex="0">Setting</h2>
                     <div class="d-flex flex-row justify-content-center mt-3" id="containerSetting">
                         <img class="bg-secondary rounded-circle" style="width:80px; height:80px;">
                         <p class="placeholder-glow d-flex flex-column ms-3" id="skeletonSetting">
                           <span class="placeholder my-2" style="width:250px"></span>
-                        
                           <span class="placeholder" style="width:200px"></span>
                         </p>
                     </div>
