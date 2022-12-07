@@ -14,8 +14,12 @@ const ChangePassword = {
 
   async afterRender() {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
-
     const loading = document.querySelector('loading-page');
+    const backButton = document.querySelector('#backButton');
+
+    backButton.addEventListener('click', () => {
+      window.location.assign(`#/setting/${url.id}`);
+    });
 
     const addLoading = () => {
       loading.classList.remove('d-none');
@@ -31,26 +35,36 @@ const ChangePassword = {
 
     const updatePassword = async () => {
       if (window.navigator.onLine) {
-        if (newPassword.value === confirmPassword.value) {
-          const data = {
-            password: newPassword.value,
-          };
-          addLoading();
-          const response = await UserDbSource.updateUser(data, url.id);
-          removeLoading();
-          if (response.status === 200) {
-            Swal.fire({
-              position: 'center',
-              icon: 'success',
-              title: 'SUCCESS, Your password has been edited',
-              showConfirmButton: false,
-              timer: 2500,
-            });
+        if (newPassword.value !== '' && confirmPassword.value !== '') {
+          if (newPassword.value === confirmPassword.value) {
+            const data = {
+              password: newPassword.value,
+            };
+            addLoading();
+            const response = await UserDbSource.updateUser(data, url.id);
+            removeLoading();
+            if (response.status === 200) {
+              Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Your password has been edited',
+                showConfirmButton: false,
+                timer: 2500,
+              });
+            } else {
+              Swal.fire({
+                position: 'center',
+                icon: 'error',
+                title: 'Your password hasn\'t been edited',
+                showConfirmButton: false,
+                timer: 2500,
+              });
+            }
           } else {
             Swal.fire({
               position: 'center',
-              icon: 'error',
-              title: 'FAILED, Your password hasn\'t been edited',
+              icon: 'warning',
+              title: 'Your new password isn\'t same with confirm password',
               showConfirmButton: false,
               timer: 2500,
             });
@@ -59,7 +73,7 @@ const ChangePassword = {
           Swal.fire({
             position: 'center',
             icon: 'warning',
-            title: 'WARNING, Your new password isn\'t same with confirm password',
+            title: 'Your new password can\'t empty',
             showConfirmButton: false,
             timer: 2500,
           });
@@ -68,7 +82,7 @@ const ChangePassword = {
         Swal.fire({
           position: 'center',
           icon: 'error',
-          title: 'ERROR, Please check your internet',
+          title: 'Please check your internet',
           showConfirmButton: false,
           timer: 2500,
         });

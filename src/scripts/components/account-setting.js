@@ -6,11 +6,13 @@ class AccountSetting extends HTMLElement {
   render() {
     this.innerHTML = `
                   <div class="container-expand-lg">
+                    <div class="container-lg pt-3">
+                      <button id="backButton" class="bg-transparent border-0" aria-label="back button"><i class="bi bi-arrow-left" style="font-size:44px"></i></button>
+                    </div>
                     <div class="d-flex justify-content-center fw-bold p-3">
                       <h2 tabindex="0">My Account</h2>
                     </div>
                     <div class="container-lg mt-2 mb-5">
-                      <form>
                         <div class="mb-3">
                           <label for="namaAccount" class="form-label">Nama</label>
                           <input type="text" class="form-control" id="namaAccount">
@@ -34,7 +36,6 @@ class AccountSetting extends HTMLElement {
                         <div class="mb-3 d-flex justify-content-center" >
                           <button type="submit" class="btn btn-success w-50 rounded-4" style="height:44px;" id="saveButton">Save</button>
                         </div>
-                      </form>
                     </div>
                   </div>
                   `;

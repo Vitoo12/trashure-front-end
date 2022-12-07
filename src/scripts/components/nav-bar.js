@@ -12,17 +12,17 @@ class NavBar extends HTMLElement {
     this.innerHTML = `
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color:#5DB932">
           <div class="container-xl">
-            <a class="navbar-brand fw-bold fs-4" href="#/"><img src="./favicon.png" style="width:44px; height:44px;"> Trashure</a>
+            <a class="navbar-brand fw-bold fs-1" href="#/"><img src="./favicon.png" alt="Logo image" style="width:44px; height:44px;"> Trashure</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="navbar-nav ms-auto my-2 my-lg-0" style="--bs-scroll-height: 100px;">
                 <li class="nav-item m-2">
-                  <a class="nav-link active" aria-current="page" href="#/list">List-Pengepul</a>
+                  <a class="nav-link active greenHover" aria-current="page" href="#/list">List-Pengepul</a>
                 </li>
                 <li class="nav-item dropdown m-2">
-                  <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <a class="nav-link dropdown-toggle active greenHover" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Tips
                   </a>
                   <ul class="dropdown-menu">

@@ -20,6 +20,11 @@ const AccountSetting = {
     const nikAccount = document.querySelector('#nikAccount');
     const alamatAccount = document.querySelector('#alamatAccount');
     const loading = document.querySelector('loading-page');
+    const backButton = document.querySelector('#backButton');
+
+    backButton.addEventListener('click', () => {
+      window.location.assign(`#/setting/${url.id}`);
+    });
 
     const removeLoading = () => {
       loading.classList.add('d-none');
@@ -28,6 +33,8 @@ const AccountSetting = {
     const addLoading = () => {
       loading.classList.remove('d-none');
     };
+
+    const saveButton = document.querySelector('#saveButton');
 
     const user = await UserDbSource.detailUser(url.id);
     if (user) {
@@ -38,8 +45,6 @@ const AccountSetting = {
       alamatAccount.value = `${user.alamat}`;
       removeLoading();
     }
-
-    const saveButton = document.querySelector('#saveButton');
 
     const saveEdit = async () => {
       if (window.navigator.onLine) {

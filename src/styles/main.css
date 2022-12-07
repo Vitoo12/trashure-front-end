@@ -35,9 +35,18 @@ main{
 
 }
 
-a {
+a{
+    display:inline-block;
     min-width: 44px;
     min-height: 44px;
+}
+
+.greenHover:hover{
+  color: rgb(0, 54, 12) !important;
+}
+
+.bgHover:hover{
+  background-color: rgb(97, 94, 94) !important;
 }
 
 button {
