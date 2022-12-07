@@ -11,7 +11,6 @@ class Login extends HTMLElement {
                 <p tabindex="0">Please log in to your account <b>as pengepul</b></p>
               </div>
               <div class="container-lg mt-4">
-                <form>
                     <div>
                         <label>E-mail</label>
                         <br>
@@ -25,7 +24,6 @@ class Login extends HTMLElement {
                     <div class="d-flex justify-content-center mt-5">
                         <button type="submit" class="w-50 text-light rounded-pill border-0" style="height:44px; background-color:#5DB932;" id="buttonLogin">Login</button>
                     </div>
-                </form>
               </div>
               <div class="d-flex justify-content-center mt-3 mb-5">
                 <p tabindex="0">Don't have an account? <a href="#/register" class="" style="color:#5DB932;">Sign Up</a></p>

@@ -11,7 +11,6 @@ class Register extends HTMLElement {
                   <p tabindex="0">Create an account <b>as pengepul</b> in here</p>
                 </div>
                 <div class="container-lg mt-4">
-                  <form>
                       <div class="mb-3">
                         <label for="namaInput" class="form-label">Nama</label>
                         <input type="text" class="form-control" id="namaInput" required>
@@ -43,7 +42,6 @@ class Register extends HTMLElement {
                       <div class="d-flex justify-content-center mt-5">
                           <button type="submit" class="w-50 text-light rounded-pill border-0" style="height:44px; background-color:#5DB932;" id="registerButton">Register</button>
                       </div>
-                  </form>
                 </div>
                 <div class="d-flex justify-content-center mt-3 mb-5">
                   <p tabindex="0">Already have an account? <a href="#/login" style="color:#5DB932">Login</a></p>

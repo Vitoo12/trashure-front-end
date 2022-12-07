@@ -43,7 +43,7 @@ const ListPengepul = {
           containerCardList.innerHTML += createPengepulListItemTemplate(user);
         });
       } else {
-        containerCardList.innerHTML = '<h2 class="text-warning fs-2">Alamat tidak ada yang cocok !!!</h2>';
+        containerCardList.innerHTML = '<h2 class="text-warning fs-2" tabindex="0">Alamat tidak ada yang cocok !!!</h2>';
       }
     });
   },

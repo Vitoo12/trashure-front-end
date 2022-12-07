@@ -33,20 +33,21 @@ class AnorganikDetail extends HTMLElement {
 
     return `
     <div class="container-expand-lg anorganik-name py-4">
-      <h2 class="card-title py-2 text-uppercase fs-1">${name}</h2>
+      <a href="#/anorganik" class="text-black" aria-label="back to anorganik page"><i class="bi bi-arrow-left" style="font-size:44px"></i></a>
+      <h2 class="card-title py-2 text-uppercase fs-1" tabindex="0">${name}</h2>
       <div class="row">
         <div class="col-xl-8" style="min-height:250px">
-          <img src="${image}" class="w-100 lazyload" alt="${name}" style="max-height:500px;" />
+          <img src="${image}" tabindex="0" class="w-100 lazyload" alt="${name}" style="max-height:500px;" />
         </div>
         <div class="col-xl-4">
-          <p class="video-text fs-5">Video = <a href="${video}" target="_blank" class="link-success">${video}</a> </p> 
-          <p class="description-text lh-lg" style="font-size:1em;">${description} </p>
+          <p class="video-text fs-5" tabindex="0">Video = <a href="${video}" target="_blank" class="link-success">${video}</a> </p> 
+          <p class="description-text lh-lg" style="font-size:1em;" tabindex="0">${description} </p>
         </div>
       </div>
     </div>
 
     <div class="anorganik-step" style="padding:50px 0px">
-      <h2 class="mb-3">Tips and Trick mengelola sampah ${name}</h2>
+      <h2 class="mb-3" tabindex="0">Tips and Trick mengelola sampah ${name}</h2>
     </div>
     `;
   }
@@ -55,12 +56,12 @@ class AnorganikDetail extends HTMLElement {
     const { title, descDetail, imageDetail } = stepAnorganik;
     return `
     <div class="py-4">
-      <h3 class="card-title py-2">${index + 1}. ${title.split(' ').map((word) => word[0].toUpperCase() + word.slice(1)).join(' ')}
+      <h3 class="card-title py-2" tabindex="0">${index + 1}. ${title.split(' ').map((word) => word[0].toUpperCase() + word.slice(1)).join(' ')}
       </h3>
       <div style="min-height:300px;">
-        <img src="${imageDetail}" class="w-100 lazyload" alt="${title}" style="max-height:500px; max-width:500px"/>
+        <img src="${imageDetail}" tabindex="0" class="w-100 lazyload" alt="${title}" style="max-height:500px; max-width:500px"/>
       </div>
-      <p class="text-break lh-lg" style="1em">${descDetail}</p>
+      <p class="text-break lh-lg" style="font-size:1em;" tabindex="0">${descDetail}</p>
     </div>
     `;
   }

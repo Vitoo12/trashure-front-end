@@ -36,7 +36,10 @@ const Setting = {
     const user = await UserDbSource.detailUser(url.id);
     if (user) {
       containerSetting.innerHTML = `
-                        <img src="images/profile-pic.png" class="bg-light rounded-circle" style="width:80px; height:80px;">
+                        <picture class="rounded-circle">
+                          <source type="image/jpeg" srcset="./images/profile-pic.jpg" style="height:80px; width:80px;" alt="profile image">
+                          <img src='./images/profile-pic.webp' alt="profile image" style="height:80px; width:80px;">
+                        </picture>
                         <div class="px-3 pt-3">
                             <h5 class="text-light" tabindex="0">${user.name}</h5>
                             <p class="text-light" tabindex="0">${user.number}</p>
@@ -44,7 +47,7 @@ const Setting = {
                         `;
     } else {
       containerSetting.innerHTML = `
-                        <img class="bg-secondary rounded-circle" style="width:80px; height:80px;">
+                        <div class="bg-secondary rounded-circle" style="width:80px; height:80px;"></div>
                         <div class="px-3 pt-3">
                             <h5 class="text-light">Name is Invalid</h5>
                             <p class="text-light">Number is Invalid</p>

@@ -45,11 +45,11 @@ class AnorganikPage extends HTMLElement {
     } = anorganik;
     return `
       <div class="col-xs-12 col-sm-6 col-lg-4 col-xl-3 my-3">
-        <div class="card" style="width:300px; height:500px">
-          <img src="${image}" class="card-img-top lazyload" alt="${name}" style="height:300px;"/>
+        <div class="card" style="height:550px">
+          <img src="${image}" class="lazyload w-100" tabindex="0" alt="${name}" style="height:280px;"/>
           <div class="card-body">
-            <h5 class="card-title text-capitalize">${name}</h5>
-            <p class="card-page card-text text-break" style="overflow:auto; height:150px;">${description}</p>
+            <h5 class="card-title text-capitalize" tabindex="0">${name}</h5>
+            <p class="card-page card-text text-break" style="overflow:auto; height:140px;" tabindex="0">${description}</p>
             <a href="#/anorganik/${id}" type="button" class="btn btn-warning">Detail</a>
           </div>
         </div>
@@ -70,25 +70,19 @@ class AnorganikPage extends HTMLElement {
   async render() {
     this.innerHTML = `
       <div class="container-expand-lg">
-        <h1 class="text-center mt-4">Tips Anorganik</h1>
+        <h1 class="text-center mt-4" tabindex="0">Tips Anorganik</h1>
         <div class="container-expand-lg bg-success p-4 rounded-5 rounded-bottom" style="min-height:500px;">
           <div class="d-flex justify-content-center h-100">
             <div class="input-group mb-3">
-              <input
-                type="text"
-                class="search-input form-control"
-                placeholder="Mau daur ulang limbah apa hari ini?"
-                aria-label="Mau daur ulang limbah apa hari ini?"
-                aria-describedby="basic-addon2"
-              />
+              <input type="text" class="search-input form-control" placeholder="Mau daur ulang limbah apa hari ini?" aria-label="Mau daur ulang limbah apa hari ini?" aria-describedby="basic-addon2"/>
               <div class="input-group-append ms-1">
-                <button class="search form-control bg-warning">
+                <button class="search form-control bg-warning" aria-label="Search Button">
                   <i class="bi bi-search"></i>
                 </button>
               </div>
             </div>
           </div>
-          <div class="container-expand-lg container-anorganik">
+          <div class="container-expand-lg row container-anorganik">
             <skeleton-tips class="row"></skeleton-tips>
           </div>
         </div>
