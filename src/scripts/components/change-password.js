@@ -18,7 +18,6 @@ class ChangePassword extends HTMLElement {
             <p class="text-wrap text-center" tabindex="0">Your New Password  Must Be Different from Previously Used Password.</p>
           </div>
           <div class="container-lg mt-2 mb-5">
-            <form>
               <div class="mb-3">
                 <label for="newPassword" class="form-label">New Password</label>
                 <input type="password" class="form-control bg-light" id="newPassword"/>
@@ -30,7 +29,6 @@ class ChangePassword extends HTMLElement {
               <div class="mb-3 d-flex justify-content-center">
                 <button type="submit" class="btn btn-success w-50 rounded-4" style="height:44px;" id="updateButton">Update</button>
               </div>
-            </form>
           </div>
         </div>
       `;
